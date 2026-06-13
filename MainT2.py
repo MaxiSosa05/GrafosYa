@@ -37,7 +37,6 @@ class Main:
 
     def Desplegar(self):
 
-
         k1 = 2
         k2 = 5
 
@@ -47,13 +46,11 @@ class Main:
 
         while op != 6:
 
-
-
             match(op):
 
                 case 1:
                     grafo = Grafo()
-                    print("se a genereado otro grafo \n")
+                    print("\n-- se a genereado otro grafo -- \n")
 
                 case 2: 
                     print(grafo)    
@@ -82,7 +79,7 @@ class Main:
                         print("distancia total" ,distancia)
                         print("PRECIO = " , precio , "\n")  
 
-                        ubi.remove(origen)
+                        ubi.remove(origen)  # asi no se repiten los mismos
                         ubi.remove(destino)    
 
                 case 4:
@@ -91,13 +88,18 @@ class Main:
 
                     subgrafo = grafo.G.subgraph(estaciones)
                     mst = nx.minimum_spanning_tree(subgrafo, algorithm="kruskal")
+                    # en mst tengo el arbol de expacion minima
 
-                    # ruta (DFS sobre el MST)
+                    # aca recorro el arbol desde el inico y voy guardando en una lista 
                     inicio = estaciones[0]
                     ruta = list(nx.dfs_preorder_nodes(mst, source=inicio))
 
                     print("Ruta de la camioneta:")
                     print(" -> ".join(ruta))
+
+                    # join convierte una lista de string en un solo string y los separa 
+                    # ruta = ["E1", "E3", "E5"]
+                    # "E1 -> E3 -> E5"
 
                 case 5:
 
@@ -110,10 +112,6 @@ class Main:
             os.system('cls')
             op = Menu()
               
-
-
-
-
 if __name__ == "__main__":
 
 
