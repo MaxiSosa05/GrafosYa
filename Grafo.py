@@ -63,9 +63,7 @@ class Grafo:
         plt.show()
 
 
-
     def __str__(self):
-
         
         resultado = (
             f"\n--------------Detalle del grafo----------------\n\n"

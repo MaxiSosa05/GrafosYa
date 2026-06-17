@@ -14,8 +14,10 @@ def generar_vertices():
 
     n = random.randint(6, 10)  # número de ubicaciones a usar , para variedad...
 
+    ubicaciones = random.sample(origenes, n)
+    
     for j in range(n):
-        vertices.append(random.choice(origenes))
+        vertices.append(ubicaciones[j])
         vertices.append(estaciones[j])  # cada ubicación con su estación
 
         # subo a la lista la misma cantidad de ubis que de estaciones
